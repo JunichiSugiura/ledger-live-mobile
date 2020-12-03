@@ -153,13 +153,16 @@ class GraphCardHeader extends PureComponent<{
                 <Placeholder
                   width={50}
                   containerHeight={19}
-                  style={{ marginRight: 10 }}
+                  style={styles.placehoder}
                 />
                 <Placeholder width={50} containerHeight={19} />
               </>
             ) : hoveredItem ? (
               <LText>
-                <FormatDate date={hoveredItem.date} />
+                <FormatDate
+                  date={hoveredItem.date}
+                  format="MMMM d, yyyy H:m a"
+                />
               </LText>
             ) : (
               <View style={styles.delta}>
@@ -212,6 +215,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
+    height: 20,
   },
   pillsContainer: {
     marginTop: 16,
@@ -237,6 +241,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
   },
+  placehoder: { marginRight: 10 },
 });
 
 export default compose(connect(null, mapDispatchToProps))(GraphCard);
