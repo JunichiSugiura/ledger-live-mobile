@@ -173,7 +173,7 @@ class GraphCardHeader extends PureComponent<{
                 <Placeholder
                   width={50}
                   containerHeight={19}
-                  style={{ marginRight: 10 }}
+                  style={styles.placeholder}
                 />
                 <Placeholder width={50} containerHeight={19} />
               </>
@@ -232,6 +232,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
+    height: 20,
   },
   pillsContainer: {
     marginTop: 16,
@@ -244,15 +245,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingRight: 10,
+    paddingHorizontal: 16,
     flexWrap: "nowrap",
   },
   graphHeaderBalance: { alignItems: "flex-start", flex: 1 },
   delta: {
     flexDirection: "row",
     flexWrap: "wrap",
-    paddingLeft: 16,
   },
+  placeholder: { marginRight: 10 },
 });
 
 export default compose(connect(null, mapDispatchToProps))(AssetGraphCard);

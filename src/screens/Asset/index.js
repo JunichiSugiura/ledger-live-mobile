@@ -305,7 +305,6 @@ const styles = StyleSheet.create({
     color: colors.smoke,
   },
   balanceContainer: {
-    marginLeft: 16,
     alignItems: "flex-start",
   },
 });

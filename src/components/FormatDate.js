@@ -9,7 +9,10 @@ type Props = {
   format?: string,
 };
 
-function FormatDate({ date, format: formatProp = "MMMM d, yyyy" }: Props) {
+function FormatDate({
+  date,
+  format: formatProp = "MMMM d, yyyy H:m a",
+}: Props) {
   return format(date, formatProp);
 }
 

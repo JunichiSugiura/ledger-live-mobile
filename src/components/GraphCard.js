@@ -159,10 +159,7 @@ class GraphCardHeader extends PureComponent<{
               </>
             ) : hoveredItem ? (
               <LText>
-                <FormatDate
-                  date={hoveredItem.date}
-                  format="MMMM d, yyyy H:m a"
-                />
+                <FormatDate date={hoveredItem.date} />
               </LText>
             ) : (
               <View style={styles.delta}>

@@ -192,7 +192,7 @@ class GraphCardHeader extends PureComponent<{
                 <Placeholder
                   width={50}
                   containerHeight={19}
-                  style={{ marginRight: 10 }}
+                  style={styles.placeholder}
                 />
                 <Placeholder width={50} containerHeight={19} />
               </>
@@ -258,6 +258,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
+    height: 20,
   },
   pillsContainer: {
     marginTop: 16,
@@ -285,6 +286,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
   },
+  placeholder: { marginRight: 10 },
 });
 
 export default compose(connect(null, mapDispatchToProps))(AccountGraphCard);
