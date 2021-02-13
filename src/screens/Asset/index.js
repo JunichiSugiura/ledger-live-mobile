@@ -306,7 +306,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   balanceContainer: {
-    marginLeft: 16,
     alignItems: "flex-start",
   },
 });
