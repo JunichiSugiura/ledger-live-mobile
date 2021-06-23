@@ -12,6 +12,8 @@ export default function PortfolioTabIcon(props: any) {
   const accounts = useSelector(accountsSelector);
   const isFocused = useIsFocused();
 
+  return <TabIcon Icon={PortfolioIcon} i18nKey="tabs.portfolio" {...props} />;
+
   if (!isFocused || accounts.length === 0) {
     return <TabIcon Icon={PortfolioIcon} i18nKey="tabs.portfolio" {...props} />;
   }

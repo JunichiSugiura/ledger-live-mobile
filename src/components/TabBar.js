@@ -1,6 +1,12 @@
 // @flow
 import React, { useState, useCallback } from "react";
-import { StyleSheet, useWindowDimensions, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  useWindowDimensions,
+  StatusBar,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedGestureHandler,
@@ -10,20 +16,24 @@ import Animated, {
   runOnJS,
 } from "react-native-reanimated";
 import { PanGestureHandler } from "react-native-gesture-handler";
-// import { PortfolioTabIcon } from "../screens/Portfolio";
-// import AccountsIcon from "../icons/Accounts";
+import { PortfolioTabIcon } from "../screens/Portfolio";
+import AccountsIcon from "../icons/Accounts";
 import { TransferTabIcon } from "../screens/Transfer";
-// import { ManagerTabIcon } from "./RootNavigator/ManagerNavigator";
-// import SettingsIcon from "../icons/Settings";
+import { ManagerTabIcon } from "./RootNavigator/ManagerNavigator";
+import SettingsIcon from "../icons/Settings";
 import NewsFeed from "./NewsFeed";
+import TabIcon from "./TabIcon";
+import { NavigatorName, ScreenName } from "../const";
 
-const BAR_HEIGHT = 60;
+const BAR_HEIGHT = 80;
 const MIN_Y = 60;
 const NAV_VISIBLE_RANGE = 100;
 
-type Props = {};
+type Props = {
+  navigation: any,
+};
 
-export default function TabBar(props: Props) {
+export default function TabBar({ navigation }: Props) {
   const [barStyle, setBarStyle] = useState<"default" | "light-content">(
     "default",
   );
@@ -114,7 +124,41 @@ export default function TabBar(props: Props) {
           ]}
         >
           <Animated.View style={[styles.navigations, animatedNavStyle]}>
-            <TransferTabIcon />
+            <TouchableOpacity
+              onPress={() => navigation.jumpTo(ScreenName.Portfolio)}
+              style={styles.touchable}
+            >
+              <PortfolioTabIcon color={TEMP_TAB_COLOR} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.jumpTo(NavigatorName.Accounts)}
+              style={styles.touchable}
+            >
+              <TabIcon
+                Icon={AccountsIcon}
+                i18nKey="tabs.accounts"
+                color={TEMP_TAB_COLOR}
+              />
+            </TouchableOpacity>
+            <View style={styles.touchable}>
+              <TransferTabIcon color={TEMP_TAB_COLOR} />
+            </View>
+            <TouchableOpacity
+              onPress={() => navigation.jumpTo(NavigatorName.Manager)}
+              style={styles.touchable}
+            >
+              <ManagerTabIcon color={TEMP_TAB_COLOR} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.jumpTo(NavigatorName.Settings)}
+              style={styles.touchable}
+            >
+              <TabIcon
+                Icon={SettingsIcon}
+                i18nKey="tabs.settings"
+                color={TEMP_TAB_COLOR}
+              />
+            </TouchableOpacity>
           </Animated.View>
 
           <NewsFeed />
@@ -123,6 +167,8 @@ export default function TabBar(props: Props) {
     </>
   );
 }
+
+const TEMP_TAB_COLOR = "#888";
 
 const styles = StyleSheet.create({
   bottomSheet: {
@@ -133,6 +179,7 @@ const styles = StyleSheet.create({
   navigations: {
     // backgroundColor: "blue",
     height: BAR_HEIGHT,
+    paddingBottom: 12,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
@@ -150,5 +197,10 @@ const styles = StyleSheet.create({
   backgroundShadow: {
     backgroundColor: "#000",
     position: "absolute",
+  },
+  touchable: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
   },
 });
