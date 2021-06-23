@@ -58,6 +58,7 @@ import AccountHeaderTitle from "../../screens/Account/AccountHeaderTitle";
 import AccountHeaderRight from "../../screens/Account/AccountHeaderRight";
 import RequestAccountNavigator from "./RequestAccountNavigator";
 import VerifyAccount from "../../screens/VerifyAccount";
+import WebViewer from "../../screens/WebViewer";
 
 export default function BaseNavigator() {
   const { t } = useTranslation();
@@ -401,6 +402,14 @@ export default function BaseNavigator() {
           />
         );
       })}
+      <Stack.Screen
+        name={"WebViewer"}
+        component={WebViewer}
+        options={{
+          title: "Explorer",
+          headerLeft: null,
+        }}
+      />
     </Stack.Navigator>
   );
 }

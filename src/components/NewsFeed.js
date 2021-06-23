@@ -1,15 +1,65 @@
 // @flow
 import React, { useState, useCallback, useEffect } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View, TouchableOpacity } from "react-native";
 import firestore from "@react-native-firebase/firestore";
 import Article from "./Article";
 import type { ArticleDoc } from "./Article";
+import NFT from "./NFT";
+import LText from "./LText";
 
 export default function NewsFeed() {
-  const articles = useArticles();
+  const [listType, setListType] = useState<"news" | "gallery">("news");
 
   return (
     <ScrollView style={styles.scrollView}>
+      <View style={tagStyles.container}>
+        <TouchableOpacity
+          onPress={() => setListType("news")}
+          style={[tagStyles.tag]}
+        >
+          <LText semiBold style={[tagStyles.tagText]}>
+            Articles
+          </LText>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => setListType("gallery")}
+          style={[tagStyles.tag]}
+        >
+          <LText semiBold style={[tagStyles.tagText]}>
+            Gallery
+          </LText>
+        </TouchableOpacity>
+      </View>
+
+      {listType === "news" ? <Articles /> : <NFT />}
+      <Articles />
+    </ScrollView>
+  );
+}
+
+const tagStyles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    paddingHorizontal: 16,
+  },
+  tag: {
+    backgroundColor: "#DDD",
+    borderRadius: 20,
+    padding: 8,
+    marginRight: 8,
+    paddingHorizontal: 16,
+  },
+  tagText: {
+    color: "#000",
+  },
+});
+
+function Articles() {
+  const articles = useArticles();
+
+  return (
+    <>
       {articles.map((article, i) => (
         <Article
           key={article.guid}
@@ -17,7 +67,7 @@ export default function NewsFeed() {
           last={i === articles.length - 1}
         />
       ))}
-    </ScrollView>
+    </>
   );
 }
 

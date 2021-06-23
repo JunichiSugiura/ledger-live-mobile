@@ -6,6 +6,7 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import LText from "./LText";
 
 type Props = {
@@ -14,9 +15,13 @@ type Props = {
 };
 
 export default function Article({ article, last = false }: Props) {
-  const onClick = useCallback(() => {
-    console.log("clicked");
-  }, []);
+  const navigator = useNavigation();
+
+  const onPress = useCallback(() => {
+    navigator.navigate("WebViewer", {
+      url: article.url,
+    });
+  }, [article.url]);
 
   const isToday = useCallback(date => {
     const today = new Date();
@@ -33,7 +38,7 @@ export default function Article({ article, last = false }: Props) {
     : Math.ceil(timeDiff / (24 * 60 * 60 * 1000)) + " days ago";
 
   return (
-    <TouchableWithoutFeedback onClick={onClick}>
+    <TouchableWithoutFeedback onPress={onPress}>
       <View style={[styles.container, !last ? styles.devider : undefined]}>
         <View style={styles.imageCotainer}>
           <Image source={{ uri: article.imageUrl }} style={styles.image} />
