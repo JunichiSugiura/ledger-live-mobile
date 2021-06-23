@@ -10,13 +10,18 @@ import Animated, {
   runOnJS,
 } from "react-native-reanimated";
 import { PanGestureHandler } from "react-native-gesture-handler";
+// import { PortfolioTabIcon } from "../screens/Portfolio";
+// import AccountsIcon from "../icons/Accounts";
 import { TransferTabIcon } from "../screens/Transfer";
+// import { ManagerTabIcon } from "./RootNavigator/ManagerNavigator";
+// import SettingsIcon from "../icons/Settings";
+import NewsFeed from "./NewsFeed";
 
 const BAR_HEIGHT = 60;
 const MIN_Y = 60;
 const NAV_VISIBLE_RANGE = 100;
 
-interface Props {}
+type Props = {};
 
 export default function TabBar(props: Props) {
   const [barStyle, setBarStyle] = useState<"default" | "light-content">(
@@ -111,6 +116,8 @@ export default function TabBar(props: Props) {
           <Animated.View style={[styles.navigations, animatedNavStyle]}>
             <TransferTabIcon />
           </Animated.View>
+
+          <NewsFeed />
         </Animated.View>
       </PanGestureHandler>
     </>

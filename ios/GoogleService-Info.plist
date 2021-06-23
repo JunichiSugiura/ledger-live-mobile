@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>194819365604-p84jbele5rd6kj0j27hrghgnur00bpbg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.194819365604-p84jbele5rd6kj0j27hrghgnur00bpbg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBDZZWkcibH9q4lAPAer44U9S6FG-AxMYo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>194819365604</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ledger.live.test</string>
+	<key>PROJECT_ID</key>
+	<string>ledger-317521</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ledger-317521.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:194819365604:ios:2367328e4e135f315f6af1</string>
+</dict>
+</plist>
