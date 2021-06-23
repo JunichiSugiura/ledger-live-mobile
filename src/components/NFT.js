@@ -94,9 +94,7 @@ const styles = StyleSheet.create({
 function useNFTBundles() {
   const [bundles, setBundles] = useState<BundleObj[]>([]);
   useEffect(() => {
-    fetch(
-      `https://api.opensea.io/api/v1/bundles?limit=10&offset=0&on_sale=true`,
-    )
+    fetch(`https://api.opensea.io/api/v1/bundles?limit=3&offset=0&on_sale=true`)
       .then(data => data.json())
       .then(d => setBundles(d.bundles));
   }, []);
