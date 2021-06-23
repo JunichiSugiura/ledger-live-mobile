@@ -10,6 +10,7 @@ import SettingsNavigator from "./SettingsNavigator";
 import TabIcon from "../TabIcon";
 import AccountsIcon from "../../icons/Accounts";
 import SettingsIcon from "../../icons/Settings";
+import TabBar from "../TabBar";
 
 import Tab from "./CustomBlockRouterNavigator";
 
@@ -25,6 +26,7 @@ export default function MainNavigator({
   const { hideTabNavigation } = params || {};
   return (
     <Tab.Navigator
+      tabBar={props => <TabBar {...props} />}
       tabBarOptions={{
         style: [
           {
